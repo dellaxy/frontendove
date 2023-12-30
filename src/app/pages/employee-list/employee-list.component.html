@@ -1,6 +1,11 @@
-<!-- your-component.component.html -->
 <div class="row">
-    <div *ngFor="let employee of employees$ | async" class="col-md-3 mb-3">
+    <div class="col-md-12 mb-3">
+        <input type="text" placeholder="Search employees" [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()"
+            class="form-control">
+    </div>
+</div>
+<div class="row">
+    <div *ngFor="let employee of filteredEmployees$ | async " class="col-md-3 mb-3">
         <app-employee-card [employee]="employee"></app-employee-card>
     </div>
 </div>

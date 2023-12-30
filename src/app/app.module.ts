@@ -11,6 +11,7 @@ import { EmployeeListComponent } from './pages/employee-list/employee-list.compo
 import { EmployeeCardComponent } from './components/employee-card/employee-card.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EmployeeComponent } from './pages/employee/employee.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     StoreModule.forRoot({ employees: employeeReducer })
   ],
   providers: [

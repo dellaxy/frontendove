@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.select(selectEmployees).subscribe((employees) => {
-      console.log('Employees from AppComponent', employees);
       if (employees.length === 0) {
         this.employeeService.getLightEmployees().subscribe((employees) => {
           this.store.dispatch(loadEmployees({ employees }));
