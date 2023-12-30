@@ -1,0 +1,6 @@
+<!-- your-component.component.html -->
+<div class="row">
+    <div *ngFor="let employee of employees$ | async" class="col-md-3 mb-3">
+        <app-employee-card [employee]="employee"></app-employee-card>
+    </div>
+</div>

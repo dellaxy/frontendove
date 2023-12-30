@@ -5,8 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class MenuService {
   menuItems = [
-    { route: '/dashboard', icon: 'assets/img/home.svg', name: 'Dashboard' },
-    { route: '/employees', icon: 'assets/img/employee.svg', name: 'Employees' },
+
+    { route: '/dashboard', name: 'Dashboard' },
+    { route: '/employees', name: 'Employees' },
   ];
   constructor() { }
 }
