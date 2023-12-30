@@ -12,6 +12,9 @@ import { EmployeeCardComponent } from './components/employee-card/employee-card.
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { FormsModule } from '@angular/forms';
+import { WorkCalendarComponent } from './components/work-calendar/work-calendar.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,18 @@ import { FormsModule } from '@angular/forms';
     EmployeeCardComponent,
     EmployeeListComponent,
     DashboardComponent,
-    EmployeeComponent],
+    EmployeeComponent,
+    WorkCalendarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({ employees: employeeReducer })
+    StoreModule.forRoot({ employees: employeeReducer }),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   providers: [
     provideClientHydration()

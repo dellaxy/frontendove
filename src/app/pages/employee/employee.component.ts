@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectEmployeeById } from '../../store/employee.selectors';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Employee } from '../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
 import { loadEmployee } from '../../store/employee.actions';
@@ -16,11 +16,15 @@ export class EmployeeComponent implements OnInit {
 
   employeeId: number;
   employee$: Observable<Employee>;
+  calendarEvents: Observable<any>;
 
   constructor(private router: ActivatedRoute, private store: Store, private EmployeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.employeeId = +this.router.snapshot.params['id'];
+
+    this.calendarEvents = this.EmployeeService.getEmployeeCalendar(this.employeeId)
+
     this.employee$ = this.store.select(selectEmployeeById(this.employeeId));
     this.employee$.subscribe(employee => {
       const hasUndefinedValues = Object.values(employee).some(value => value === undefined || value === null);

@@ -26,6 +26,10 @@ export class EmployeeService {
     );
   }
 
+  getEmployeeCalendar(employeeId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}getEmployeeCalendar.php?id=${employeeId}`);
+  }
+
 
 
   mapApiToEmployee(apiResponse: any): Employee {
