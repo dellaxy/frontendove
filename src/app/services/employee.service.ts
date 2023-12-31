@@ -41,9 +41,9 @@ export class EmployeeService {
       dateOfBirth: new Date(apiResponse.date_of_birth),
       hireDate: new Date(apiResponse.hire_date),
       gender: apiResponse.gender,
-      address: apiResponse.address_street + ', ' + apiResponse.address_city + ', ' + apiResponse.address_state + ', ' + apiResponse.address_zip_code,
+      address: apiResponse.address_street + ', ' + apiResponse.address_city + ', ' + apiResponse.address_state + ' ' + apiResponse.address_zip,
       phoneNumber: apiResponse.phone_number,
-      department: apiResponse.department_id,
+      department: apiResponse.name,
       position: apiResponse.position,
       salary: apiResponse.salary
     }

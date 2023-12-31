@@ -1,6 +1,89 @@
-<div *ngIf="employee$ | async as employee;">
-    <!-- Display employee details here -->
-    <h1>{{ employee.salary }}</h1>
-    <p>{{ employee.phoneNumber }}</p>
-    <app-work-calendar [calendarEvents]="calendarEvents"></app-work-calendar>
-</div>
+<section>
+    <div class="row" *ngIf="employee$ | async as employee">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <img src="{{getEmployeeImage(employee.gender)}}" alt="avatar" class="rounded-circle img-fluid"
+                        style="width: 150px;">
+                    <h5 class="my-3">{{employee.firstName}}</h5>
+                    <p class="text-muted mb-1">{{employee.position}}</p>
+                    <p class="text-muted mb-3">{{employee.department}}</p>
+                    <div class="d-flex justify-content-center mb-1">
+                        <button type="button" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Full Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{employee.firstName}} {{employee.lastName}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{employee.email}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Phone</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{employee.phoneNumber}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Address</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{employee.address}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Hire date</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{employee.hireDate | date:'dd. MM. yyyy'}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Salary</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{ employee.salary | currency:'EUR':'symbol':'1.0-0' }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6" *ngIf="calendarEvents != undefined">
+            <div class="card mb-4 mb-md-0">
+                <app-work-calendar [calendarEvents]="calendarEvents"></app-work-calendar>
+            </div>
+        </div>
+    </div>
+</section>

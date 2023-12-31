@@ -17,7 +17,6 @@ export class WorkCalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.calendarEvents.subscribe(events => {
-      console.log(events);
       this.events = events.map(event => {
         return {
           title: event.event_description,

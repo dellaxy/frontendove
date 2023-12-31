@@ -36,4 +36,13 @@ export class EmployeeComponent implements OnInit {
     }).unsubscribe();
   }
 
+  getEmployeeImage(gender: string): string {
+    if (gender === 'Male') {
+      return 'assets/images/male_avatar.jpg'
+    } else if (gender === 'Female') {
+      return 'assets/images/female_avatar.jpg'
+    }
+    return 'assets/images/male_avatar.jpg'
+  }
+
 }
