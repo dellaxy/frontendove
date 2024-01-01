@@ -34,9 +34,9 @@ export class DepartmentComponent implements OnInit {
 
     this.departmentTeamLeader = {
       id: 1,
-      firstName: 'Team',
-      lastName: 'Leaderko',
-      email: 'teamleaderko@gmail.com',
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'teamleaderko@email.com',
       gender: 'Male'
     };
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChartData, ChartTypes } from '../../models/chartData.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
+  subPages = [
+    { label: 'Employees', route: '/dashboard/employee-data' },
+    { label: 'Salaries', route: '/dashboard/salary-data' },
+    { label: 'Projects', route: '/dashboard/project-data' }
+  ];
 
+  constructor() { }
 }

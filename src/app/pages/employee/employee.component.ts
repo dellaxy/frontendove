@@ -36,17 +36,13 @@ export class EmployeeComponent implements OnInit {
 
     this.employee$ = this.store.select(selectEmployeeById(this.employeeId));
     this.employee$.subscribe(employee => {
-      const hasUndefinedValues = Object.values(employee).some(value => value === undefined || value === null);
+      const hasUndefinedValues = (employee && Object.values(employee).some(value => value === undefined || value === null));
       if (hasUndefinedValues) {
         this.EmployeeService.getDetailedEmployee(this.employeeId).subscribe(employee => {
           this.store.dispatch(loadEmployee({ employee }));
         });
       }
     }).unsubscribe();
-
-    this.employee$.subscribe(employee => {
-      console.log(employee);
-    });
   }
 
   getEmployeeImage(gender: string): string {

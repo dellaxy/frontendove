@@ -2,8 +2,9 @@ export interface ChartData {
     chartType?: ChartTypes;
     title: string;
     labels: string[];
-    data: number[];
+    data: any[];
     fill?: boolean;
+    color?: string | string[];
 }
 
 export enum ChartTypes {

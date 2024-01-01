@@ -1,1 +1,6 @@
-<p>dashboard works!</p>
+<div class="head-link-set mb-3">
+    <ul>
+        <li *ngFor="let subpage of subPages"><a [routerLink]="subpage.route">{{subpage.label}}</a></li>
+    </ul>
+</div>
+<router-outlet></router-outlet>

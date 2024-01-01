@@ -5,10 +5,19 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { DepartmentsComponent } from './pages/departments/departments.component';
 import { DepartmentComponent } from './pages/department/department.component';
+import { EmployeeStatsComponent } from './pages/dashboard/employee-stats/employee-stats.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      { path: 'employee-data', component: EmployeeStatsComponent },
+      { path: 'salary-data', component: EmployeeListComponent },
+      { path: 'project-data', component: EmployeeListComponent },
+    ]
+  },
   { path: 'employees', component: EmployeeListComponent },
   { path: 'employees/employee/:id', component: EmployeeComponent },
   { path: 'departments', component: DepartmentsComponent },

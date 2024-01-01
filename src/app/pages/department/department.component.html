@@ -4,17 +4,8 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-3">
-                            <p class="mb-0">Department</p>
-                        </div>
-                        <div class="col-sm-9">
-                            <p class="text-muted mb-0">{{departmentData.name}}</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
                         <div class="col-sm-12">
-                            <h5 class="mb-3">Employees</h5>
+                            <h4 class="mb-3"><b>{{departmentData.name}}</b> Team Members</h4>
                             <div class="employee-list">
                                 <app-list-group [listData]="departmentEmployees"
                                     (rowClicked)="openEmployee($event)"></app-list-group>
@@ -25,14 +16,15 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <app-chart [chartData]="teamRevenueChart"></app-chart>
+                    <app-chart [chartData]="[teamRevenueChart]"></app-chart>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card mb-3">
-                <div class="card-body text-center" [routerLink]="['/employees/employee', departmentTeamLeader.id]">
+            <div class="card mb-3 text-center">
+                <h4 class="card-title mt-2">Team Leader</h4>
+                <div class="card-body" [routerLink]="['/employees/employee', departmentTeamLeader.id]">
                     <img [src]="getEmployeeImage(departmentTeamLeader.gender)" alt="avatar"
                         class="rounded-circle img-fluid" style="width: 100px;">
                     <h5 class="my-3">{{departmentTeamLeader.firstName}} {{departmentTeamLeader.lastName}}</h5>
@@ -42,7 +34,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Projects</h5>
+                    <h4 class="card-title">Projects</h4>
                     <div class="project-list">
                         <app-list-group [listData]="departmentProjects">
                         </app-list-group>

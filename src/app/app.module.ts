@@ -20,6 +20,7 @@ import { ChartComponent } from './components/chart/chart.component';
 import { DepartmentsComponent } from './pages/departments/departments.component';
 import { ListGroupComponent } from './components/list-group/list-group.component';
 import { DepartmentComponent } from './pages/department/department.component';
+import { EmployeeStatsComponent } from './pages/dashboard/employee-stats/employee-stats.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DepartmentComponent } from './pages/department/department.component';
     ChartComponent,
     DepartmentsComponent,
     ListGroupComponent,
-    DepartmentComponent],
+    DepartmentComponent,
+    EmployeeStatsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
