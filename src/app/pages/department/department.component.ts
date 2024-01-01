@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { Employee } from '../../models/employee.model';
 import { Observable } from 'rxjs';
 import { ListData } from '../../models/listData.model';
+import { ChartData, ChartTypes } from '../../models/chartData.model';
 
 @Component({
   selector: 'app-department',
@@ -19,6 +20,7 @@ export class DepartmentComponent implements OnInit {
   departmentTeamLeader: any; //toto by bol jeden Employee z departmentEmployees$
   departmentEmployees: ListData[];
   departmentProjects: any[];
+  teamRevenueChart: ChartData;
 
   constructor(private router: Router, private employeeService: EmployeeService, private activeRouter: ActivatedRoute) { }
 
@@ -28,8 +30,8 @@ export class DepartmentComponent implements OnInit {
     this.departmentData = {
       id: this.departmentId,
       name: 'Development',
-
     };
+
     this.departmentTeamLeader = {
       id: 1,
       firstName: 'Team',
@@ -37,6 +39,7 @@ export class DepartmentComponent implements OnInit {
       email: 'teamleaderko@gmail.com',
       gender: 'Male'
     };
+
     this.departmentEmployees = [
       {
         id: 1,
@@ -53,6 +56,47 @@ export class DepartmentComponent implements OnInit {
         title: 'Jane Doe',
         image: this.getEmployeeImage('Female')
       },
+    ];
+
+    this.teamRevenueChart = {
+      chartType: ChartTypes.Line,
+      title: 'Team Half-Yearly Sales Revenue Over the Years',
+      labels: [
+        'H1 2018', 'H2 2018',
+        'H1 2019', 'H2 2019',
+        'H1 2020', 'H2 2020',
+        'H1 2021', 'H2 2021',
+        'H1 2022', 'H2 2022',
+        'H1 2023', 'H2 2023'
+      ],
+      data: [
+        120000, 150000,
+        110000, 130000,
+        140000, 160000,
+        105000, 120000,
+        130000, 145000,
+        100000, 125000
+      ],
+      fill: true
+    };
+
+    this.departmentProjects = [
+      {
+        id: 1,
+        title: 'Project 1',
+      },
+      {
+        id: 2,
+        title: 'Project 2',
+      },
+      {
+        id: 3,
+        title: 'Project 3',
+      },
+      {
+        id: 4,
+        title: 'Project 4',
+      }
     ];
   }
 

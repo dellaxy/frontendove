@@ -3,6 +3,7 @@ export interface ChartData {
     title: string;
     labels: string[];
     data: number[];
+    fill?: boolean;
 }
 
 export enum ChartTypes {

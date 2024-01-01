@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8">
-            <div class="card h-100">
+            <div class="card mb-3">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-3">
@@ -23,10 +23,15 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-body">
+                    <app-chart [chartData]="teamRevenueChart"></app-chart>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card h-75 mb-2">
+            <div class="card mb-3">
                 <div class="card-body text-center" [routerLink]="['/employees/employee', departmentTeamLeader.id]">
                     <img [src]="getEmployeeImage(departmentTeamLeader.gender)" alt="avatar"
                         class="rounded-circle img-fluid" style="width: 100px;">
@@ -35,11 +40,14 @@
                 </div>
             </div>
 
-            <div class="card h-75 mt-2">
+            <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Projects</h5>
+                    <div class="project-list">
+                        <app-list-group [listData]="departmentProjects">
+                        </app-list-group>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

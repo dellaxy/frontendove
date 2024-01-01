@@ -22,7 +22,11 @@ export class ChartComponent implements OnInit {
           {
             label: this.chartData.title,
             data: this.chartData.data,
-            backgroundColor: ['#0083FF'],
+            backgroundColor: this.chartData.fill ? 'rgba(0, 131, 255, .2)' : 'rgba(0, 131, 255, 1)',
+            borderColor: ['#0083FF'],
+            pointBorderColor: ['#0083FF'],
+            pointBackgroundColor: ['#0083FF'],
+            fill: this.chartData.fill ? this.chartData.fill : false,
           },
         ],
       },
