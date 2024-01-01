@@ -1,6 +1,8 @@
 <div class="head-link-set mb-3">
     <ul>
-        <li *ngFor="let subpage of subPages"><a [routerLink]="subpage.route">{{subpage.label}}</a></li>
+        <li *ngFor="let subpage of subPages">
+            <a [routerLink]="subpage.route" [routerLinkActive]="'active'">{{subpage.label}}</a>
+        </li>
     </ul>
 </div>
 <router-outlet></router-outlet>

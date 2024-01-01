@@ -21,6 +21,9 @@ import { DepartmentsComponent } from './pages/departments/departments.component'
 import { ListGroupComponent } from './components/list-group/list-group.component';
 import { DepartmentComponent } from './pages/department/department.component';
 import { EmployeeStatsComponent } from './pages/dashboard/employee-stats/employee-stats.component';
+import { SalaryDataComponent } from './pages/dashboard/salary-data/salary-data.component';
+import { ProjectDataComponent } from './pages/dashboard/project-data/project-data.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,11 @@ import { EmployeeStatsComponent } from './pages/dashboard/employee-stats/employe
     DepartmentsComponent,
     ListGroupComponent,
     DepartmentComponent,
-    EmployeeStatsComponent],
+    EmployeeStatsComponent,
+    SalaryDataComponent,
+    ProjectDataComponent,
+    TableComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

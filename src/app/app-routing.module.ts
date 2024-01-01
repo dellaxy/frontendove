@@ -6,16 +6,18 @@ import { EmployeeComponent } from './pages/employee/employee.component';
 import { DepartmentsComponent } from './pages/departments/departments.component';
 import { DepartmentComponent } from './pages/department/department.component';
 import { EmployeeStatsComponent } from './pages/dashboard/employee-stats/employee-stats.component';
+import { ProjectDataComponent } from './pages/dashboard/project-data/project-data.component';
+import { SalaryDataComponent } from './pages/dashboard/salary-data/salary-data.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard/employee-data', pathMatch: 'full' },
   {
     path: 'dashboard',
     component: DashboardComponent,
     children: [
       { path: 'employee-data', component: EmployeeStatsComponent },
-      { path: 'salary-data', component: EmployeeListComponent },
-      { path: 'project-data', component: EmployeeListComponent },
+      { path: 'salary-data', component: SalaryDataComponent },
+      { path: 'project-data', component: ProjectDataComponent },
     ]
   },
   { path: 'employees', component: EmployeeListComponent },

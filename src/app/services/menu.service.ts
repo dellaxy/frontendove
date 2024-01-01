@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class MenuService {
   menuItems = [
-
     { route: '/dashboard', name: 'Dashboard' },
     { route: '/employees', name: 'Employees' },
     { route: '/departments', name: 'Departments' },

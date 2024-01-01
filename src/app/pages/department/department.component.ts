@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../../services/employee.service';
 import { Department } from '../../models/department.model';
-import { Store } from '@ngrx/store';
-import { Employee } from '../../models/employee.model';
-import { Observable } from 'rxjs';
 import { ListData } from '../../models/listData.model';
 import { ChartData, ChartTypes } from '../../models/chartData.model';
 
