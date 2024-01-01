@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Department</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{departmentData.name}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5 class="mb-3">Employees</h5>
+                            <div class="employee-list">
+                                <div *ngFor="let employee of departmentEmployees" class="employee-item">
+                                    <hr class="my-2">
+                                    <div class="d-flex align-items-center"
+                                        [routerLink]="['/employees/employee', employee.id]">
+                                        <img [src]="getEmployeeImage(employee.gender)" alt="Employee Avatar"
+                                            class="rounded-circle img-fluid employee-avatar" style="width: 50px;">
+                                        <strong class="mb-0 ms-3">{{employee.firstName}} {{employee.lastName}}</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-75 mb-2">
+                <div class="card-body text-center" [routerLink]="['/employees/employee', departmentTeamLeader.id]">
+                    <img [src]="getEmployeeImage(departmentTeamLeader.gender)" alt="avatar"
+                        class="rounded-circle img-fluid" style="width: 100px;">
+                    <h5 class="my-3">{{departmentTeamLeader.firstName}} {{departmentTeamLeader.lastName}}</h5>
+                    <p class="text-muted mb-1">{{departmentTeamLeader.email}}</p>
+                </div>
+            </div>
+
+            <div class="card h-75 mt-2">
+                <div class="card-body">
+                    <h5 class="card-title">Projects</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

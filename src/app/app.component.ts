@@ -3,7 +3,6 @@ import { EmployeeService } from './services/employee.service';
 import { Store } from '@ngrx/store';
 import { loadEmployees } from './store/employee.actions';
 import { selectEmployees } from './store/employee.selectors';
-import { isEmpty, take } from 'rxjs';
 
 @Component({
   selector: 'app-root',

@@ -1,3 +1,5 @@
+import { Department } from "./department.model";
+
 export interface Employee {
     id: number;
     firstName: string;
@@ -8,7 +10,7 @@ export interface Employee {
     gender: string;
     address: string;
     phoneNumber: string;
-    department: string;
     position: string;
     salary: number;
+    department: Department;
 }

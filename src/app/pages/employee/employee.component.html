@@ -60,7 +60,7 @@
                             <p class="mb-0">Hire date</p>
                         </div>
                         <div class="col-sm-9">
-                            <p class="text-muted mb-0">{{employee.hireDate | date:'dd. MM. yyyy'}}</p>
+                            <p class="text-muted mb-0">{{employee.hireDate}}</p>
                         </div>
                     </div>
                     <hr>
@@ -79,7 +79,9 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6"></div>
+        <div class="col-md-6 h-100">
+            <app-chart [chartData]="workHoursPerMonth"></app-chart>
+        </div>
         <div class="col-md-6" *ngIf="calendarEvents != undefined">
             <div class="card mb-4 mb-md-0">
                 <app-work-calendar [calendarEvents]="calendarEvents"></app-work-calendar>

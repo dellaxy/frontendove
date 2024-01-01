@@ -4,7 +4,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { employeeReducer } from './store/employee.reducer';
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
@@ -15,6 +15,11 @@ import { FormsModule } from '@angular/forms';
 import { WorkCalendarComponent } from './components/work-calendar/work-calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgChartsModule } from 'ng2-charts';
+import { ChartComponent } from './components/chart/chart.component';
+import { DepartmentsComponent } from './pages/departments/departments.component';
+import { ListGroupComponent } from './components/list-group/list-group.component';
+import { DepartmentComponent } from './pages/department/department.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +29,17 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     EmployeeListComponent,
     DashboardComponent,
     EmployeeComponent,
-    WorkCalendarComponent],
+    WorkCalendarComponent,
+    ChartComponent,
+    DepartmentsComponent,
+    ListGroupComponent,
+    DepartmentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgChartsModule,
     StoreModule.forRoot({ employees: employeeReducer }),
     CalendarModule.forRoot({
       provide: DateAdapter,
@@ -37,7 +47,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     })
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,20 @@
+<div class="list-group">
+    <div *ngFor="let listItem of listData" class="list-group-item p-3" (click)="onRowClicked(listItem)">
+        <div class="row">
+            <div class="d-flex align-items-center col-3">
+                <img *ngIf="listItem.image" [src]="listItem.image" alt="Department Image"
+                    class="rounded-circle img-fluid me-4" style="width: 50px; height: 50px;">
+                <div>
+                    <h4 class="mb-1">{{listItem.title}}</h4>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div *ngFor="let column of listItem.columns; let i = index" class="col-md-4">
+                        <strong>{{column.key}}:</strong> {{column.value}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

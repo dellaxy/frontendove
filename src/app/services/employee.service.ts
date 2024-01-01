@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Employee } from '../models/employee.model';
 import { map } from 'rxjs/operators';
 
-// Import the 'Employee' type
 @Injectable({
   providedIn: 'root'
 })
@@ -30,7 +29,18 @@ export class EmployeeService {
     return this.http.get<any[]>(`${this.baseUrl}getEmployeeCalendar.php?id=${employeeId}`);
   }
 
+  getDepartments(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}getDepartments.php`);
+  }
 
+  getEmployeeImage(gender: string): string {
+    if (gender === 'Male') {
+      return 'assets/images/male_avatar.jpg'
+    } else if (gender === 'Female') {
+      return 'assets/images/female_avatar.jpg'
+    }
+    return 'assets/images/male_avatar.jpg'
+  }
 
   mapApiToEmployee(apiResponse: any): Employee {
     return {
@@ -43,7 +53,10 @@ export class EmployeeService {
       gender: apiResponse.gender,
       address: apiResponse.address_street + ', ' + apiResponse.address_city + ', ' + apiResponse.address_state + ' ' + apiResponse.address_zip,
       phoneNumber: apiResponse.phone_number,
-      department: apiResponse.name,
+      department: {
+        id: apiResponse.department_id,
+        name: apiResponse.name,
+      },
       position: apiResponse.position,
       salary: apiResponse.salary
     }

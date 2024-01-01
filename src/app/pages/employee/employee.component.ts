@@ -6,6 +6,7 @@ import { Observable, map } from 'rxjs';
 import { Employee } from '../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
 import { loadEmployee } from '../../store/employee.actions';
+import { ChartData, ChartTypes } from '../../models/chartData.model';
 
 @Component({
   selector: 'app-employee',
@@ -17,6 +18,7 @@ export class EmployeeComponent implements OnInit {
   employeeId: number;
   employee$: Observable<Employee>;
   calendarEvents: Observable<any>;
+  workHoursPerMonth: ChartData;
 
   constructor(private router: ActivatedRoute, private store: Store, private EmployeeService: EmployeeService) { }
 
@@ -24,6 +26,13 @@ export class EmployeeComponent implements OnInit {
     this.employeeId = +this.router.snapshot.params['id'];
 
     this.calendarEvents = this.EmployeeService.getEmployeeCalendar(this.employeeId)
+
+    this.workHoursPerMonth = {
+      chartType: ChartTypes.Bar,
+      title: 'Work Hours per Month',
+      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+      data: [160, 180, 150, 200, 170, 190],
+    };
 
     this.employee$ = this.store.select(selectEmployeeById(this.employeeId));
     this.employee$.subscribe(employee => {
@@ -34,15 +43,13 @@ export class EmployeeComponent implements OnInit {
         });
       }
     }).unsubscribe();
+
+    this.employee$.subscribe(employee => {
+      console.log(employee);
+    });
   }
 
   getEmployeeImage(gender: string): string {
-    if (gender === 'Male') {
-      return 'assets/images/male_avatar.jpg'
-    } else if (gender === 'Female') {
-      return 'assets/images/female_avatar.jpg'
-    }
-    return 'assets/images/male_avatar.jpg'
+    return this.EmployeeService.getEmployeeImage(gender);
   }
-
 }

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class WorkCalendarComponent implements OnInit {
 
-  @Input() calendarEvents: Observable<any>;
+  @Input({ required: true }) calendarEvents: Observable<any>;
 
   view: CalendarView = CalendarView.Month;
   viewDate: Date = new Date();

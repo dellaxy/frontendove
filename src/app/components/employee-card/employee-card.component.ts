@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Employee } from '../../models/employee.model';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-employee-card',
@@ -8,16 +9,11 @@ import { Employee } from '../../models/employee.model';
 })
 export class EmployeeCardComponent {
 
-  @Input({ required: true }) employee!: Employee;
+  @Input({ required: true }) employee: Employee;
 
-  constructor() { }
+  constructor(private EmployeeService: EmployeeService) { }
 
   getEmployeeImage(gender: string): string {
-    if (gender === 'Male') {
-      return 'assets/images/male_avatar.jpg'
-    } else if (gender === 'Female') {
-      return 'assets/images/female_avatar.jpg'
-    }
-    return 'assets/images/male_avatar.jpg'
+    return this.EmployeeService.getEmployeeImage(gender);
   }
 }

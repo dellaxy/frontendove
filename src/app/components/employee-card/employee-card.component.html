@@ -1,4 +1,4 @@
-<div class="card" [routerLink]="['/employee', employee.id]">
+<div class="card" [routerLink]="['/employees/employee', employee.id]">
     <img [src]="getEmployeeImage(employee.gender)" class="card-img-top" alt="Employee Image">
     <div class="card-body">
         <h5 class="card-title">{{ employee.firstName }} {{ employee.lastName }}</h5>

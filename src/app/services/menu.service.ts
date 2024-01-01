@@ -8,6 +8,7 @@ export class MenuService {
 
     { route: '/dashboard', name: 'Dashboard' },
     { route: '/employees', name: 'Employees' },
+    { route: '/departments', name: 'Departments' },
   ];
   constructor() { }
 }
