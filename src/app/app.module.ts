@@ -24,6 +24,7 @@ import { EmployeeStatsComponent } from './pages/dashboard/employee-stats/employe
 import { SalaryDataComponent } from './pages/dashboard/salary-data/salary-data.component';
 import { ProjectDataComponent } from './pages/dashboard/project-data/project-data.component';
 import { TableComponent } from './components/table/table.component';
+import { ChipMenuComponent } from './components/chip-menu/chip-menu.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { TableComponent } from './components/table/table.component';
     SalaryDataComponent,
     ProjectDataComponent,
     TableComponent,
+    ChipMenuComponent,
   ],
   imports: [
     BrowserModule,

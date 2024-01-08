@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,5 +13,5 @@ export class DashboardComponent {
     { label: 'Projects', route: '/dashboard/project-data' }
   ];
 
-  constructor() { }
+  constructor(public router: Router) { }
 }

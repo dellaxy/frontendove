@@ -1,8 +1,9 @@
-<div class="head-link-set mb-3">
-    <ul>
-        <li *ngFor="let subpage of subPages">
-            <a [routerLink]="subpage.route" [routerLinkActive]="'active'">{{subpage.label}}</a>
-        </li>
-    </ul>
+<app-chip-menu [menuItems]="subPages"></app-chip-menu>
+
+<div class="row" *ngIf="router.url === '/dashboard'">
+    <div class="col-md-12">
+        Nejaký random uvítací text
+    </div>
 </div>
+
 <router-outlet></router-outlet>
